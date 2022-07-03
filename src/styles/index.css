@@ -1,0 +1,59 @@
+* {
+	box-sizing: border-box;
+}
+
+p{
+  margin: 0;
+}
+
+body,
+html,
+#root {
+	height: 100%;
+	background-color: #212121;
+}
+
+body {
+  color: #f5f5f5;
+  font-size: 16px;
+}
+
+#root {
+	display: flex;
+	flex-direction: column;
+
+}
+
+header {
+	margin: auto;
+}
+
+.main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+	flex: 1;
+
+}
+
+footer {
+	height: 50px;
+}
+
+
+.card {
+  height: clamp(300px, 350px, 400px);
+  width: clamp(300px, 350px, 400px);
+  background-color: #757575;
+  color: black;
+  margin: 20px;
+  font-size: 1.8rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+}
+
+.card > div {
+  flex: 1;
+}
