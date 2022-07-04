@@ -1,10 +1,10 @@
 import React from 'react';
 
-export default function Card({ name, click, card }) {
+export default function Card({ click, card }) {
 	return (
-		<div className='card' onClick={(event) => click(card) }>
-			<div></div>
-			<p>{name}</p>
+		<div className='card' onClick={() => click(card) }>
+			<img src={card.img} alt=''></img>
+			<p>{card.name}</p>
 		</div>
 	);
 }

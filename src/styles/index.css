@@ -73,3 +73,8 @@ body {
 .score-container > h2 {
 	margin: 5px;
 }
+
+img {
+	height: 100%;
+	width: 100%;
+}
