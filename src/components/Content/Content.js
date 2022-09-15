@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
+import { useCardsStore } from '../../store';
 import Card from './Card';
 
-function Content({ click, cards }) {
+function Content() {
 	const [gameIsReady, setGameIsReady] = useState(false);
+	const cards = useCardsStore((state) => state.cards);
 	const gameRender = () => {
 		if (gameIsReady) {
 			return cards.map((card) => {
-				return <Card key={card.id} card={card} click={click} alt='' />;
+				return <Card key={card.id} card={card} alt='' />;
 			});
 		} else {
 			return (
