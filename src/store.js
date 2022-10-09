@@ -1,7 +1,7 @@
 // A zustand test!
 
-import create from 'zustand';
-import { cardList } from './assets/cardList';
+import create from "zustand";
+import { cardList } from "./assets/cardList";
 
 export const useScoreStore = create((set) => ({
   score: 0,
@@ -17,31 +17,38 @@ export const useCardsStore = create((set) => ({
     })),
   cardToggle: (passedCard) =>
     set((state) => ({
-      cards: state.cards.map((card) => {
-        if (card.id === passedCard.id) {
-          return {
-            ...card,
-            clicked: true,
-          };
-        } else return card;
-      }),
+      cards: cardToggle(passedCard, state.cards),
     })),
   cardsReset: () =>
     set((state) => ({
-      cards: state.cards.map((card) => {
-        return {
-          ...card,
-          clicked: false,
-        };
-      }),
+      cards: cardsReset(state.cards),
     })),
 }));
 
-const shuffleCards = (cards) => {
-  const cardsCopy = [...cards];
-  for (let i = 0; i < cardsCopy.length; i++) {
+const shuffleCards = ([...cards]) => {
+  for (let i = 0; i < cards.length; i++) {
     let j = Math.floor(Math.random() * (i + 1));
-    [cardsCopy[i], cardsCopy[j]] = [cardsCopy[j], cardsCopy[i]];
+    [cards[i], cards[j]] = [cards[j], cards[i]];
   }
-  return cardsCopy;
+  return cards;
+};
+
+const cardToggle = (passedCard, cards) => {
+  return cards.map((card) => {
+    if (card.id === passedCard.id) {
+      return {
+        ...card,
+        clicked: true,
+      };
+    } else return card;
+  });
+};
+
+const cardsReset = (cards) => {
+  return cards.map((card) => {
+    return {
+      ...card,
+      clicked: false,
+    };
+  });
 };
