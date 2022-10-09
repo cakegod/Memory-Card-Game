@@ -1,4 +1,4 @@
-import React, { memo, useEffect } from "react";
+import React, { memo } from "react";
 import { useCardsStore, useScoreStore } from "../../store";
 import { motion } from "framer-motion";
 
